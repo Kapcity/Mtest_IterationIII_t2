@@ -27,6 +27,7 @@ public class CustomerCreditCard extends AppCompatActivity {
 
     String userEmail;
 
+    Integer counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,8 @@ public class CustomerCreditCard extends AppCompatActivity {
         userEmail = sharedPref.getString("customerEmail", "");
         editCustomerCreditCardEmail.setText(userEmail);
 
+
+
         AddCustomerCreditCard();
     }
 
@@ -66,7 +69,9 @@ public class CustomerCreditCard extends AppCompatActivity {
                         getCreditCardCVV.equals("") || getCustomerCreditCardEmail.equals("")){
                     Toast.makeText( CustomerCreditCard.this, "Please fill out all information", Toast.LENGTH_LONG).show();
                 } else {
-                    CreditCardClass creditCard = new CreditCardClass( getCustomerCreditCardNum, getCustomerHolderName, getCreditCardDate, getCreditCardCVV, getCustomerCreditCardEmail);
+                    counter =+ 1;
+                    String getCustomerCreditCardID = Integer.toString(counter);
+                    CreditCardClass creditCard = new CreditCardClass(getCustomerCreditCardID, getCustomerCreditCardNum, getCustomerHolderName, getCreditCardDate, getCreditCardCVV, getCustomerCreditCardEmail);
                     myRef.child(customerEmail).child(getCustomerCreditCardNum).setValue(creditCard);
                     editCustomerHolderName.setText("");
                     editCustomerCreditCardNumber.setText("");

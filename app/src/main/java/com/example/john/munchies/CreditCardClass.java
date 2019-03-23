@@ -2,13 +2,23 @@ package com.example.john.munchies;
 //Harvey
 public class CreditCardClass {
 
+
+
+
+    private String creditCardID;
     private String creditCardNumber;
     private String holderName;
     private String date;
     private String cvv;
     private String email;
 
-    public CreditCardClass( String creditCardNumber, String holderName, String date, String cvv, String email) {
+    public CreditCardClass(){
+
+    }
+
+
+    public CreditCardClass(String creditCardID, String creditCardNumber, String holderName, String date, String cvv, String email) {
+        this.creditCardID = creditCardID;
         this.creditCardNumber = creditCardNumber;
         this.holderName = holderName;
         this.date = date;
@@ -17,7 +27,13 @@ public class CreditCardClass {
     }
 
 
+    public String getCreditCardID() {
+        return creditCardID;
+    }
 
+    public void setCreditCardID(String creditCardID) {
+        this.creditCardID = creditCardID;
+    }
 
     public String getHolderName() {
         return holderName;
@@ -58,4 +74,6 @@ public class CreditCardClass {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }
